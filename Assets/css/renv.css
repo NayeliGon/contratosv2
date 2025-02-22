@@ -1,0 +1,292 @@
+    /* Global Styles */
+    body,
+    html {
+        height: 100%;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f6f9;
+    }
+
+    .dashboard-container {
+        padding: 50px 15px;
+        min-height: 80vh;
+    }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        /* Make the card take up all available height */
+        min-height: 280px;
+        /* Ensure all cards have the same height */
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-icon {
+        font-size: 40px;
+        color: #007bff;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 25px;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: #343a40;
+        padding: 20px;
+    }
+
+    header h1 {
+        color: #fff;
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    /* Footer Styles */
+    footer {
+        background-color: #343a40;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+
+    /* Responsive adjustments to ensure equal card heights */
+    .row>.col-md-4 {
+        display: flex;
+    }
+
+    .card-body {
+        flex-grow: 1;
+        /* Ensures that content within the card takes up all available space */
+    }
+
+    /* Estilos para el sidebar */
+    .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #343a40;
+        padding-top: 20px;
+        transition: width 0.3s ease;
+    }
+
+    .sidebar a {
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+        color: white;
+        display: block;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .sidebar a:hover {
+        background-color: #495057;
+    }
+
+    .sidebar a.active {
+        background-color: #007bff;
+    }
+
+    .content {
+        margin-left: 250px;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+    }
+
+    .sidebar-toggle {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 0;
+            overflow-x: hidden;
+        }
+
+        .sidebar a {
+            font-size: 16px;
+            padding: 10px;
+        }
+
+        .sidebar-toggle {
+            display: block;
+            margin-left: 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .content {
+            margin-left: 0;
+        }
+
+        .sidebar.open {
+            width: 250px;
+        }
+    }
+
+    .card-icon {
+        font-size: 40px;
+        color: #007bff;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #343a40;
+        color: white;
+    }
+
+    /* Para ajustar el margen de las tarjetas */
+    .dashboard-container {
+        margin-left: 260px;
+    }
+
+    @media (max-width: 768px) {
+        .dashboard-container {
+            margin-left: 0;
+        }
+    }
+
+    /* Estilos adicionales para hacerlo más estético */
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .sidebar-toggle {
+        color: #343a40;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border: none;
+        outline: none;
+    }
+
+    .sidebar-toggle:focus {
+        outline: none;
+    }
+
+    .sidebar-toggle i {
+        font-size: 24px;
+    }
+
+    /* Estilos para el sidebar */
+    .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #343a40;
+        padding-top: 20px;
+        transition: width 0.3s ease;
+        overflow: hidden;
+    }
+
+    .sidebar a {
+        padding: 15px;
+        text-align: left;
+        font-size: 18px;
+        color: white;
+        display: block;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .sidebar a:hover {
+        background-color: #495057;
+    }
+
+    .sidebar a.active {
+        background-color: #007bff;
+    }
+
+    .content {
+        margin-left: 250px;
+        padding: 20px;
+        transition: margin-left 0.3s ease;
+    }
+
+    .sidebar-toggle {
+        display: none;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background-color: #343a40;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .sidebar.open {
+        width: 250px;
+    }
+
+    .sidebar.closed {
+        width: 0;
+    }
+
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 0;
+        }
+
+        .content {
+            margin-left: 0;
+        }
+
+        .sidebar.open {
+            width: 250px;
+        }
+
+        .sidebar.closed {
+            width: 0;
+        }
+
+        .sidebar-toggle {
+            display: block;
+        }
+    }
+
+    .sidebar-toggle i {
+        font-size: 24px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #343a40;
+        color: white;
+    }
