@@ -41,9 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Consulta SQL de inserción
     $sql = "INSERT INTO contratos_a (
         nombre_emisor, edad_emisor, dpi_emisor,
-        nombre_receptor, edad_receptor, domicilio_receptor, dpi_receptor,
-        departamento_emision, municipio_emision, nombre_contratante, rango_documentos, direccion_contratante,
-        fecha_patente, numero_inscripcion, folio_registro, libro_registro,
+        nombre_receptor, edad_receptor, domicilio_receptor, dpi_receptor, nombre_contratante, rango_documentos, direccion_contratante,
+        numero_inscripcion, folio_registro, libro_registro,
         actividad_economica, nit, tarifa_mensual,
         cobro_unico, fecha_validez
     ) VALUES (

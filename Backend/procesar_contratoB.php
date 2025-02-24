@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Mostrar el mensaje de alerta si está definido
         if (!empty($alertMessage)) {
             echo $alertMessage;
-            echo "<script>setTimeout(() => { window.location.href = '../Vistas/ContratoB.php'; }, 3000);</script>";
+            echo "<script>setTimeout(() => { window.location.href = '../Vistas/Contrato.php'; }, 3000);</script>";
         }
         ?>
     </div>

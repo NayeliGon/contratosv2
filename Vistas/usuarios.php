@@ -59,66 +59,6 @@ $stmt = $pdo->query($sql);
 $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<?php
-require '../backend/conexion_bd.php';
-
-if (isset($_POST['agregar'])) {
-    $nombre = $_POST['nombre'];
-    $apellidos = $_POST['apellidos'];
-    $correo = $_POST['correo'];
-    $usuario = $_POST['usuario'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
-    $sql = "INSERT INTO usuarios (nombre, apellidos, correo, usuario, password) VALUES (?, ?, ?, ?, ?)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nombre, $apellidos, $correo, $usuario, $password]);
-    header("Location: usuarios.php?mensaje=Usuario agregado");
-}
-
-if (isset($_GET['eliminar'])) {
-    $id = $_GET['eliminar'];
-    $sql = "DELETE FROM usuarios WHERE id = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    header("Location: usuarios.php?mensaje=Usuario eliminado");
-}
-
-if (isset($_GET['editar'])) {
-    $id = $_GET['editar'];
-    $sql = "SELECT * FROM usuarios WHERE id = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$id]);
-    $usuarioEditar = $stmt->fetch(PDO::FETCH_ASSOC);
-}
-
-if (isset($_POST['editar_usuario'])) {
-    $id = $_POST['id'];
-    $nombre = $_POST['nombre'];
-    $apellidos = $_POST['apellidos'];
-    $correo = $_POST['correo'];
-    $usuario = $_POST['usuario'];
-    $sql = "UPDATE usuarios SET nombre = ?, apellidos = ?, correo = ?, usuario = ? WHERE id = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nombre, $apellidos, $correo, $usuario, $id]);
-    header("Location: usuarios.php?mensaje=Usuario actualizado");
-}
-
-
-if (isset($_POST['cambiar_contraseña'])) {
-    $id = $_POST['id_usuario'];
-    $nueva_contraseña = password_hash($_POST['nueva_password'], PASSWORD_BCRYPT);
-
-    $sql = "UPDATE usuarios SET password = ? WHERE id = ?";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([$nueva_contraseña, $id]);
-    header("Location: usuarios.php?mensaje=Contraseña cambiada");
-}
-
-
-$sql = "SELECT * FROM usuarios";
-$stmt = $pdo->query($sql);
-$usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
 
 <!DOCTYPE html>
 <html lang="es">

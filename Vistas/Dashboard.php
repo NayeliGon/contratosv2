@@ -44,7 +44,7 @@
             </div>
 
             <div class="col-md-4 d-flex align-items-stretch">
-                <div class="card w-100" onclick="location.href='ContratoB.php'">
+                <div class="card w-100" onclick="location.href='Contrato.php'">
                     <div class="card-body text-center">
                         <i class="fas fa-file-signature card-icon"></i>
                         <h3 class="card-title mt-3">Contrato con Patente</h3>
@@ -73,7 +73,7 @@
             </div>
 
             <div class="col-md-4 d-flex align-items-stretch">
-                <div class="card w-100" onclick="location.href='ContratoB.php'">
+                <div class="card w-100" onclick="location.href='Contrato.php'">
                     <div class="card-body text-center">
                         <i class="fas fa-user-tie card-icon"></i>
                         <h3 class="card-title mt-3">Contrato con Distribuidores</h3>

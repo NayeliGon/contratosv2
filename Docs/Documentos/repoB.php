@@ -89,7 +89,7 @@ En conjunto y para los efectos de este contrato conocidos ambos como 'LAS PARTES
                                 
                                 
             // Sección Primera y Segunda del contrato
-        $seccionPrimera = "PRIMERA: El representante legal de la entidad CORPOSISTEMAS, SOCIEDAD ANONIMA, declara:";
+        $seccionPrimera = " El representante legal de la entidad CORPOSISTEMAS, SOCIEDAD ANONIMA, declara:";
         $seccionPrimeraA = "a) Que su representada es una entidad mercantil organizada, autorizada y reconocida de conformidad con las leyes de la República de Guatemala, cuya actividad, entre otras, consiste en la prestación de servicios de transformación, firmado electrónico, resguardo y consulta de documentos tributarios electrónicos de conformidad con la normativa legal vigente en este país.";
 
         $seccionSegunda = "SEGUNDA: Por su parte, $nombre_distribuidor, declara:";
@@ -233,7 +233,7 @@ $seccionDecimaTercera1 = "(i) Ley Aplicable. Para la ejecución e interpretació
 (iv) Divisibilidad. Si alguna disposición del contrato es inválida o ilegal, se tendrá por no puesta, pero la validez del resto del contrato no se verá afectada.
 (v) Notificaciones. Toda comunicación deberá ser por escrito, enviada por medios electrónicos o entregada personalmente:
                 -CORPOSISTEMAS, S.A.:2ª. Calle 7-57, Zona 4, Cobán, Alta Verapaz.
-                -$nombre_distribuidor: $direccion_distribuidora.
+                -$nombre_distribuidor: $domicilio_distribuidor, $municipio, $departamento.
 (vi) Renuncia. Ningún incumplimiento podrá ser desestimado sin el consentimiento por escrito de la parte afectada. La renuncia a un incumplimiento no implica renuncia a futuros incumplimientos.";
 $seccionDecimaTercera2 = "Leído lo anterior, las partes ratifican y firman en la Ciudad de Cobán, Alta Verapaz, $dia_actual día  de $mes_actual del $año_actual.
 ";
@@ -256,13 +256,37 @@ $pdf->SetFont('Times', '', 10);
 $pdf->MultiCell(0, 6, utf8_decode($entreNosotros), 0, 'J'); 
 $pdf->Ln(2); 
 
-$pdf->SetLeftMargin(30);
-$pdf->SetX(30); 
-$pdf->MultiCell(0, 6, utf8_decode($entreNosotros2), 0, 'J'); 
+$pdf->SetLeftMargin(35);
+$pdf->SetX(35);
+
+// Definir el texto
+$entreNosotros2 = "Hemos convenido celebrar un ";
+$textoNegrita = "CONTRATO DE PRESTACIÓN DE SERVICIOS DE EMISIÓN, TRANSMISIÓN, CERTIFICACIÓN Y CONSERVACIÓN DE DOCUMENTOS TRIBUTARIOS ELECTRÓNICOS.";
+$restoTexto = " Con base en las siguientes cláusulas:";
+
+// Escribir texto normal antes de la negrita (sin saltos de línea)
+$pdf->SetFont('Times', '', 10);
+$pdf->Write(6, utf8_decode($entreNosotros2));
+
+// Escribir el texto en negrita (sin saltos de línea)
+$pdf->SetFont('Times', 'B', 10);
+$pdf->Write(6, utf8_decode($textoNegrita));
+
+// Volver a texto normal
+$pdf->SetFont('Times', '', 10);
+$pdf->Write(6, utf8_decode($restoTexto));
+
+// Salto de línea para el siguiente contenido
+$pdf->Ln(5);
+
+
 $pdf->Ln(2); 
 
 $pdf->SetLeftMargin(30);
 $pdf->SetX(30);
+$pdf->SetFont('Times', 'B', 10);
+$pdf->Write(6, utf8_decode("PRIMERA:"));
+$pdf->SetFont('Times', '', 10);
 $pdf->MultiCell(0, 6, utf8_decode($seccionPrimera), 0, 'J'); 
 $pdf->Ln(2); 
 $pdf->SetLeftMargin(45);
